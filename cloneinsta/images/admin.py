@@ -17,7 +17,7 @@ class ImageAdmin(admin.ModelAdmin):
 
     list_filter = (
         'location',
-        'creater',
+        'creator',
     )
 
     list_display = (
@@ -31,7 +31,7 @@ class ImageAdmin(admin.ModelAdmin):
 @admin.register(models.Like)
 class LikeAdmin(admin.ModelAdmin):
     list_display = (
-        'creater',
+        'creator',
         'image',
         'created_at',
         'updated_at',
@@ -42,7 +42,7 @@ class CommentAdmin(admin.ModelAdmin):
     
     list_display = (
         'message',
-        'creater',
+        'creator',
         'image',
         'created_at',
         'updated_at',
