@@ -13,7 +13,7 @@ class FeedUserSerializer(serializers.ModelSerializer):
 
 class CommentSerializer(serializers.ModelSerializer):
 
-    creator = FeedUserSerializer()
+    creator = FeedUserSerializer(read_only=True)
 
     class Meta:
         model = models.Comment
@@ -32,8 +32,8 @@ class LikeSerializer(serializers.ModelSerializer):
 class ImageSerializer(serializers.ModelSerializer):
 
     comments = CommentSerializer(many=True)
-    likes = LikeSerializer(many=True)
-    creater = FeedUserSerializer()
+    # likes = LikeSerializer(many=True)
+    creator = FeedUserSerializer()
 
     class Meta:
         model = models.Image
