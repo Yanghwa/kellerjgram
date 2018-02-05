@@ -57,7 +57,8 @@ LOCAL_APPS = [
     # custom users app
     'cloneinsta.users.apps.UsersConfig',
     # Your stuff: custom apps go here
-    'cloneinsta.images.apps.ImagesConfig',
+    'cloneinsta.images.apps.ImagesConfig', #image app
+    'cloneinsta.notifications.apps.NotificationsConfig' #notifications app
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
