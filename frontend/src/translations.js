@@ -1,8 +1,10 @@
 export const translations = {
     es: {
-        'Login in': 'Initial Session'
+        'Log in': 'Initial Session',
+        'About Us': 'Sobre nosotros'
     },
     kr: {
-        '로그인': '처음 세션'
+        'Log in': '로그인',
+        'About Us': '회사 소개'
     }
 }
