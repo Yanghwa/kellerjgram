@@ -1,10 +1,21 @@
 export const translations = {
-    es: {
-        'Log in': 'Iniciar Sesión',
-        'About Us': 'Sobre nosotros'
-    },
-    kr: {
-        'Log in': '로그인',
-        'About Us': '회사 소개'
-    }
+  'es': {
+    'Have an account?': 'Tienes una cuenta?',
+    'Log in': 'Iniciar Sesión',
+    'Don\'t have an account?': 'No tienes una cuenta?',
+    'Sign up': '',
+    'Get the app': '',
+    'About Us': '',
+    'Support': '',
+    'Blog': '',
+    'Press': '',
+    'API': '',
+    'Jobs': '',
+    'Privacy': '',
+    'Terms': '',
+    'Directory': '',
+    'Language': '',
+  },
+  'options': {
+  },
 }
