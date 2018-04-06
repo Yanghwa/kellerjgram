@@ -1,6 +1,6 @@
 export const translations = {
     es: {
-        'Log in': 'Initial Session',
+        'Log in': 'Iniciar Sesión',
         'About Us': 'Sobre nosotros'
     },
     kr: {
