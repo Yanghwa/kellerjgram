@@ -12,11 +12,11 @@ const SignupForm = (props, context) => (
             {context.t("Log in with Facebook")}
         </button>
         <span className={formStyles.divider}>or</span>
-        <form className={formStyles.form}>
-            <input type='email' placeholder='Email' className={formStyles.textInput} />
-            <input type='text' placeholder='Full Name' className={formStyles.textInput} />
-            <input type='username' placeholder='Username' className={formStyles.textInput} />
-            <input type='password' placeholder='Password' className={formStyles.textInput} />
+        <form className={formStyles.form } onSubmit={props.handleSubmit}>
+            <input type='email' placeholder='Email' className={formStyles.textInput} value={props.emailValue} onChange={props.handleInputChange} name={'email'} />
+            <input type='text' placeholder='Full Name' className={formStyles.textInput} value={props.fullnameValue} onChange={props.handleInputChange} name={'fullname'} />
+            <input type='username' placeholder='Username' className={formStyles.textInput} value={props.usernameValue} onChange={props.handleInputChange} name={'username'} />
+            <input type='password' placeholder='Password' className={formStyles.textInput} value={props.passwordValue} onChange={props.handleInputChange} name={'password'} />
             <input type='submit' placeholder='Sign Up' className={formStyles.button} />
         </form>
         <p className={formStyles.terms}>By signing up, you agree to our <span>Terms & Privacy Policy</span></p>
@@ -25,6 +25,15 @@ const SignupForm = (props, context) => (
 
 SignupForm.contextTypes = {
     t: PropTypes.func.isRequired
+};
+
+SignupForm.propTypes = {
+    emailValue: PropTypes.string.isRequired,
+    fullnameValue: PropTypes.string.isRequired,
+    usernameValue: PropTypes.string.isRequired,
+    passwordValue: PropTypes.string.isRequired,
+    handleInputChange: PropTypes.func.isRequired,
+    handleSubmit: PropTypes.func.isRequired
 };
 
 export default SignupForm;
