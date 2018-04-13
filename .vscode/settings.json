@@ -1,3 +1,4 @@
 {
-    "python.linting.pylintEnabled": false
+    "python.linting.pylintEnabled": false,
+    "python.pythonPath": "/Users/junghwanyang/.local/share/virtualenvs/stats_django_testing-ZwoRM9rj/bin/python"
 }
