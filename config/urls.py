@@ -19,7 +19,7 @@ urlpatterns = [
     url(r'^images/', include('cloneinsta.images.urls', namespace='images')),
     url(r'^notifications/', include('cloneinsta.notifications.urls', namespace='notifications')),
     url(r'^accounts/', include('allauth.urls')),
-    url(r'^', views.ReactAppView.as_view()),
+    # url(r'^', views.ReactAppView.as_view()),
 
     # Your stuff: custom urls includes go here
 
