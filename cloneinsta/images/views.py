@@ -78,7 +78,7 @@ class LikeImage(APIView):
             return Response(status=status.HTTP_404_NOT_FOUND)
         
         try:
-            preexisting_like = moedels.Like.objects.get(
+            preexisting_like = models.Like.objects.get(
                 creator = user,
                 image = found_image
             )
@@ -102,8 +102,10 @@ class UnLikeImage(APIView):
         except models.Image.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
         
+        user = request.user
+        
         try:
-            preexisting_like = moedels.Like.objects.get(
+            preexisting_like = models.Like.objects.get(
                 creator = user,
                 image = found_image
             )
