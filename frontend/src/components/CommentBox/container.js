@@ -1,13 +1,19 @@
 import React, { Component } from "react";
 import CommentBox from "./presenter";
+import PropTypes from 'prop-types';
 
 class Container extends Component {
     state = {
         comment: ""
     };
+    static propTypes = {
+        photoId: PropTypes.number.isRequired,
+        submitComment: PropTypes.func.isRequired
+    }
     render() {
         return <CommentBox 
-            {...this.state} 
+            {...this.state}
+            {...this.props}
             handleInputChange={this._handleInputChange} 
             handleKeyPress={this._handleKeyPress} />;
     };
@@ -18,9 +24,12 @@ class Container extends Component {
         });
     };
     _handleKeyPress = event => {
+        const { submitComment } =this.props;
+        const { comment } = this.state;
         const { key } = event;
         if(key === "Enter") {
-            event.preventDefault(); 
+            event.preventDefault();
+            submitComment(comment);
         }
     };
 }
