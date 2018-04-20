@@ -138,13 +138,13 @@ function getPhotoLikes(photoId) {
         const { user: { token } } = getState();
         fetch(`/images/${photoId}/likes/`, {
             headers: {
-            Authorization: `JWT ${token}`
+                Authorization: `JWT ${token}`
             }
         })
         .then(response => {
-        if (response.status === 401) {
-            dispatch(userActions.logout());
-        }
+            if (response.status === 401) {
+                dispatch(userActions.logout());
+            }
             return response.json();
         })
         .then(json => {
@@ -230,12 +230,12 @@ function applyPhotoLikes(state, action) {
     const { photoId, likes } = action;
     const { feed } = state;
     const updatedFeed = feed.map(photo => {
-    if (photo.id === photoId) {
-        return {
-        ...photo,
-        likes
-        };
-    }
+        if (photo.id === photoId) {
+            return {
+                ...photo,
+                likes
+            };
+        }
         return photo;
     });
     return { ...state, feed: updatedFeed };
