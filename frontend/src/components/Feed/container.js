@@ -7,7 +7,8 @@ class Container extends Component {
         loading: true
     };
     static propTypes = {
-        getFeed: PropTypes.func.isRequired
+        getFeed: PropTypes.func.isRequired,
+        feed: PropTypes.array
     };
     componentDidMount() {
         const { getFeed } = this.props;

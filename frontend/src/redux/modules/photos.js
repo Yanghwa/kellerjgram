@@ -8,7 +8,6 @@ const SET_FEED = 'SET_FEED';
 const LIKE_PHOTO = 'LIKE_PHOTO';
 const UNLIKE_PHOTO = 'UNLIKE_PHOTO';
 const ADD_COMMENT = 'ADD_COMMENT';
-const SET_PHOTO_LIKES = "SET_PHOTO_LIKES"
 
 //action creators
 
@@ -39,14 +38,6 @@ function addComment(photoId, comment) {
         photoId,
         comment
     }
-}
-
-function setPhotoLikes(photoId, likes) {
-    return {
-        type: SET_PHOTO_LIKES,
-        photoId,
-        likes
-    };
 }
 
 //api actions
@@ -133,26 +124,6 @@ function commentPhoto(photoId, message) {
     }
 }
 
-function getPhotoLikes(photoId) {
-    return (dispatch, getState) => {
-        const { user: { token } } = getState();
-        fetch(`/images/${photoId}/likes/`, {
-            headers: {
-                Authorization: `JWT ${token}`
-            }
-        })
-        .then(response => {
-            if (response.status === 401) {
-                dispatch(userActions.logout());
-            }
-            return response.json();
-        })
-        .then(json => {
-            dispatch(setPhotoLikes(photoId, json));
-        });
-    };
-}
-
 //initial state
 
 const initialState = {};
@@ -169,10 +140,8 @@ function reducer(state = initialState, action) {
             return applyUnlikePhoto(state, action);
         case ADD_COMMENT:
             return applyAddComment(state, action);
-        case SET_PHOTO_LIKES:
-            return applyPhotoLikes(state, action);
         default:
-            return action;
+            return state;
     }
 }
 
@@ -226,29 +195,13 @@ function applyAddComment(state, action) {
     return { ...state, feed: updateFeed };
 }
 
-function applyPhotoLikes(state, action) {
-    const { photoId, likes } = action;
-    const { feed } = state;
-    const updatedFeed = feed.map(photo => {
-        if (photo.id === photoId) {
-            return {
-                ...photo,
-                likes
-            };
-        }
-        return photo;
-    });
-    return { ...state, feed: updatedFeed };
-}
-
 //exports
 
 const actionCreators = {
     getFeed,
     likePhoto,
     unlikePhoto,
-    commentPhoto,
-    getPhotoLikes
+    commentPhoto
 };
 
 export { actionCreators };
