@@ -22,6 +22,7 @@ const PrivateRoute = props => (
   <Switch>
     <Route key='1' exact path="/" component={Feed} />
     <Route key='2' path="/explore" component={Explore} />
+    <Route path="/search/:searchTerm"  render={() => "search"} />
   </Switch>
 );
 
