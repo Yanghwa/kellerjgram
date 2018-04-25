@@ -20,7 +20,7 @@ const LoadingExplore = props => (
 
 const RenderExplore = props => (
     <div className={styles.explore}>
-        {props.userList.map(user => <UserDisplay big={true} user={user} key={user.id} />)}
+        {props.userList.map(user => <UserDisplay horizontal={true} big={true} user={user} key={user.id} />)}
     </div>
 );
 
